@@ -5,7 +5,7 @@ from django.http import HttpResponse
 def search(request):
     return render(request, 'wiki/search.html')
 
-def index(request):
+def index(request, topic):
     return render(request, 'wiki/index.html', {
-        "topic": "TOPIC",
+        "topic": topic,
     })
