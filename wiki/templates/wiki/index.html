@@ -1,59 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "wiki/layout.html" %}
+
+{% block title %}
     <title>{{ topic }}</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+{% endblock %}
 
-        .nav {
-            height: 2vh;
-            padding: 0.5vh;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .nav-search-area {
-            height: 2vh;
-            width: fit-content;
-            border: 1px solid black;
-        }
-
-        .nav-search-input,
-        .nav-search-btn {
-            height: inherit;
-            border: none;
-            outline: none;
-        }
-        
-        .nav-search-input {
-            width: 150px;
-            transform: translate(-1px, -1px);
-            padding-left: 10px;
-            background: none;
-        }
-
-        .nav-search-btn {
-            width: 50px;
-            transform: translateY(-0.5px);
-        }
-    </style>
-</head>
-<body>
+{% block body %}
     <div class="nav">
-        <div class="nav-left">
-            <!-- place for icon -->
-            <p>ICON</p>
-        </div>
-        <div class="nav-search-area">
-            <!-- place for search field -->
-            <input type="text" id="search" class="nav-search-input" name="q">
-            <button class="nav-search-btn">search</button>
-        </div>
+        <form class="nav-search-form">
+            <input type="text" class="nav-search-form-input" name="q">
+            <button class="nav-search-form-btn">search</button>
+        </form>
     </div>
     <div class="main">
         <h2>{{ topic }}</h2>
@@ -65,5 +21,4 @@
         info-info-info-info-info-info-info-info-info-info-
         info-info-info-info-info
     </div>
-</body>
-</html>
+{% endblock %}

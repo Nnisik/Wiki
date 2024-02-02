@@ -1,73 +1,21 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'wiki/styles.css' %}">
     <title>Search</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            height: fit-content;
-            width: 60%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -70%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgb(240, 220, 108);
-        }
-
-        .search-header {
-            font-size: 48px;
-            letter-spacing: 2px;
-        }
-
-        .search-area {
-            height: 30px;
-            width: 80%;
-            display: flex;
-            justify-content: space-between;
-            background: wheat;
-            border: none;
-            border-radius: 12px;
-        }
-
-        .search-input {
-            height: inherit;
-            width: 80%;
-            padding: 0 12px;
-            background: transparent;
-            border: none;
-            outline: none;
-        }
-
-        .search-btn {
-            width: 20%;
-            max-width: 100px;    
-            background: rgb(224, 201, 157);
-            border: none;
-            border-radius: 0 12px 12px 0;
-            outline: none;
-        }
-
-        .search-btn:hover {
-            box-shadow: black;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <h1 class="search-header">Search</h1>
-        <div id="search" class="search-area">
-            <input type="text" name="q" class="search-input">
-            <button type="submit" class="search-btn">search</button>
-        </div>
+        <form action="{% url 'wiki:index' %}" method="post" class="search-form">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="search-form-btn">search</button>
+        </form>
     </div>
 </body>
 </html>
