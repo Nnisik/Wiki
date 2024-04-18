@@ -1,6 +1,4 @@
 # Wiki
-CS50w Project 1 - Wikipedia-like online encyclopedia
-
 ## About
 Project 1, Wiki, for edX CS50w
 
